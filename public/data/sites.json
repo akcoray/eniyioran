@@ -1,0 +1,14 @@
+{
+	[
+		{
+			"url": "http://www.betson.com",
+			"name" : "betson",
+			"logo" : "image" 
+		},
+		{
+			"url": "http://www.iddia.com",
+			"name" : "iddia",
+			"logo" : "image" 
+		}
+	]	
+}

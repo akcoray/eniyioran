@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="watchMarketsApp">
+  <head>
+    <title><%= title %></title>
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <script type="text/javascript" data-main="/javascripts/main.js" src="/javascripts/require.js"></script>
+  </head>
+
+  <body ng-controller="MainController">
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <div class="container">
+        <ul>
+          <li ng-repeat="currency in currencies">{{currency.name}} : {{currency.value}}</li>
+        </ul>
+    </div>
+  </body>
+</html>
