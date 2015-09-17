@@ -1,8 +1,33 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background:  
 }
 
-a {
-  color: #00B7FF;
+#header {
+	background-color: #0A4766;
+	height: 90px;
+}
+
+#footer
+{
+	color: #fff;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+#footer-top
+{
+	background: #319FC4;
+	height: 45px;
+}
+
+#footer-bottom
+{
+	background: #07354D;
+	height: 60px;
+}
+
+.container
+{
+	
 }

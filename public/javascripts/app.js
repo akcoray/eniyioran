@@ -1,8 +1,6 @@
-'use strict'
 
-var app = angular.module('watchMarketsApp', []);	
+'use strict';
 
-app.controller('MainController', function($scope){
+var app = angular.module('BestBet', []);	
 
-});
 

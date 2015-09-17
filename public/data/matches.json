@@ -1,14 +1,17 @@
-{
-	[
-		{
-			"home" : "Fenerbahce",
-			"away" : "Molde",
-			"data" : "16.09.2015"
-		},
-		{
-			"home" : "Galatasaray",
-			"away" : "Atletico Madrid",
-			"data" : "16.09.2015"
-		}
-	]
-}
+[
+	{
+		"home" : "Fenerbahce",
+		"away" : "Molde",
+		"data" : "16.09.2015"
+	},
+	{
+		"home" : "Galatasaray",
+		"away" : "Atletico Madrid",
+		"data" : "16.09.2015"
+	},
+	{
+		"home" : "Besiktas",
+		"away" : "Sofia",
+		"data" : "16.09.2015"
+	}
+]

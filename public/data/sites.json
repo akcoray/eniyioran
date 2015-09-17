@@ -1,14 +1,29 @@
 {
 	[
 		{
-			"url": "http://www.betson.com",
-			"name" : "betson",
-			"logo" : "image" 
+			"url": "http://www.888.com",
+			"name" : "888",
+			"logo" : "/images/888.png" 
 		},
 		{
-			"url": "http://www.iddia.com",
-			"name" : "iddia",
-			"logo" : "image" 
+			"url": "http://www.skybet.com",
+			"name" : "skybet",
+			"logo" : "/images/skybet.jpg" 
+		},
+		{
+			"url": "http://www.star.com",
+			"name" : "star",
+			"logo" : "/images/star.png" 
+		},
+		{
+			"url": "http://www.odeonbet10.com/",
+			"name" : "odeonbet10",
+			"logo" : "/images/odeon.png" 
+		},		
+		{
+			"url": "https://sportsbook.12bets10.com",
+			"name" : "bets10",
+			"logo" : "/images/bets10.png" 
 		}
 	]	
 }

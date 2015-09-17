@@ -1,8 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  .container(ng-controller="MainController")
-    ul
-      li(ng-repeat="field in fields")
-        span {{field.caption}}
+  table.table(ng-controller="MatchesController")
+    tr
+      th.first Match
+      th odeon
+      th iddia
+      th bestbet
+      th cmon
+    tr(ng-repeat="match in matches")
+      td.first {{match.home}}-{{match.away}}
+      td
+      td
+      td
+      td
