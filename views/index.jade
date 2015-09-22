@@ -1,16 +1,19 @@
 extends layout
 
 block content
-  table.table(ng-controller="MatchesController")
-    tr
-      th.first Match
-      th odeon
-      th iddia
-      th bestbet
-      th cmon
-    tr(ng-repeat="match in matches")
-      td.first {{match.home}}-{{match.away}}
-      td
-      td
-      td
-      td
+  div.row
+    div.col-xs-9
+      div.match-container(ng-controller="MatchController")        
+        div.row(ng-repeat="match in matches | orderBy : sorter")
+          ul.list-group          
+            li.col-xs-4.list-group-item
+              i {{match.datetime | date: 'HH:mm'}}
+              span {{match.home}} vs {{match.away}}
+            li.col-xs-3.list-group-item.text-center(ng-click="addToCoupon(match.id, 1)") {{match.home}} wins
+            li.col-xs-2.list-group-item.text-center(ng-click="addtocoupon(match.id, X)") tie
+            li.col-xs-3.list-group-item.text-center(ng-click="addtocoupon(match.id, 2)") {{match.away}} wins
+    div.col-xs-3
+      div.left-section(ng-controller="CouponController")
+      h3 Your Coupon
+      ul
+        li

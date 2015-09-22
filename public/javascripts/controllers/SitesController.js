@@ -1,6 +1,4 @@
-(function(app){
-	'use strict';
-	app.controller('SitesController', function($scope) {
+function SitesController($scope) {
+"use strict";
 
-	});
-})(app);
+};

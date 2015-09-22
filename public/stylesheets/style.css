@@ -2,6 +2,17 @@ body {
 	background:  
 }
 
+h3
+{
+	padding: 0;
+	margin: 0;
+}
+
+li
+{
+	list-style: none;
+}
+
 #header {
 	background-color: #0A4766;
 	height: 90px;
@@ -27,7 +38,39 @@ body {
 	height: 60px;
 }
 
-.container
+.container 
 {
-	
+	padding: 21px;
+}
+
+.match-container li
+{
+	height : 30px;
+	line-height : 30px;
+	padding: 0 0;		
+	background: #319FC4;
+	color: white;
+}
+
+.match-container li:nth-child(n+2)
+{
+	cursor: pointer;
+}
+
+.match-container li:nth-child(n+2):hover
+{
+	background: #d4d4d4;
+}
+
+.match-container i
+{
+	font-size: 11px;
+	margin: 0 21px 0 8px;	
+	float: left;
+}
+
+.match-container span
+{
+	float: left;
+
 }

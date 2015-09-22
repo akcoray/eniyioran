@@ -1,5 +1,3 @@
-(function(app){
-	app.controller('MainController', function($scope, $http){
-
-	});
-})(app);
+function MainController($scope, $http){
+"use strict";
+};
