@@ -1,0 +1,44 @@
+@bg-color-blue-1: rgba(6,83,139, 1);
+@bg-color-blue-2 : rgba(105,112,176, 1);
+@bg-color-blue-3 : rgba(11,193,234, 1);
+@bg-color-blue-4 : rgba(111,195,228, 1);
+@bg-color-blue-5 : rgba(217,239,252, 1);
+
+@bg-color-grey-1 : rgba(251,255,241, 1);
+@bg-color-grey-2 : rgba(255,249,241, 1);
+@bg-color-grey-3 : rgba(238,254,255, 1);
+@bg-color-grey-4 : rgba(246,242,255, 1);
+@bg-color-grey-5 : rgba(255,239,239, 1);
+
+.blue-gradient
+{
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0, @bg-color-blue-4),
+		color-stop(0.100, @bg-color-blue-5)
+	);
+	background-image: -o-linear-gradient(bottom, @bg-color-blue-4 0, @bg-color-blue-5 100%);
+	background-image: -moz-linear-gradient(bottom, @bg-color-blue-4 0, @bg-color-blue-5 100%);
+	background-image: -webkit-linear-gradient(bottom, @bg-color-blue-4 0, @bg-color-blue-5 100%);
+	background-image: -ms-linear-gradient(bottom, @bg-color-blue-4 0, @bg-color-blue-5 100%);
+	background-image: linear-gradient(to bottom, @bg-color-blue-4 0, @bg-color-blue-5 100%);	
+}
+
+
+.grey-gradient
+{
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0, @bg-color-grey-4),
+		color-stop(0.100, @bg-color-grey-5)
+	);
+	background-image: -o-linear-gradient(bottom, @bg-color-grey-4 0, @bg-color-grey-5 100%);
+	background-image: -moz-linear-gradient(bottom, @bg-color-grey-4 0, @bg-color-grey-5 100%);
+	background-image: -webkit-linear-gradient(bottom, @bg-color-grey-4 0, @bg-color-grey-5 100%);
+	background-image: -ms-linear-gradient(bottom, @bg-color-grey-4 0, @bg-color-grey-5 100%);
+	background-image: linear-gradient(to bottom, @bg-color-grey-4 0, @bg-color-grey-5 100%);	
+}

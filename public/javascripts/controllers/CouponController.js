@@ -1,3 +1,4 @@
-function CouponController($scope, coupon) {
+function CouponController($scope, $http, coupon) {
 	"use strict";
+	$scope.bets = coupon.bets;
 };

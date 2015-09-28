@@ -2,18 +2,40 @@ extends layout
 
 block content
   div.row
-    div.col-xs-9
+    div.col-xs-5
+      div.right-section
+        div.competition-container
+          h3 Competitions
+          ul#competition-list
+            each competition, index in competitions
+                li=competition.title
+    div.inner-container.col-xs-14
+      h2 UPCOMING EVENTS
       div.match-container(ng-controller="MatchController")        
-        div.row(ng-repeat="match in matches | orderBy : sorter")
-          ul.list-group          
-            li.col-xs-4.list-group-item
-              i {{match.datetime | date: 'HH:mm'}}
-              span {{match.home}} vs {{match.away}}
-            li.col-xs-3.list-group-item.text-center(ng-click="addToCoupon(match.id, 1)") {{match.home}} wins
-            li.col-xs-2.list-group-item.text-center(ng-click="addtocoupon(match.id, X)") tie
-            li.col-xs-3.list-group-item.text-center(ng-click="addtocoupon(match.id, 2)") {{match.away}} wins
-    div.col-xs-3
-      div.left-section(ng-controller="CouponController")
-      h3 Your Coupon
-      ul
-        li
+        table.table.bordered
+          thead
+            tr.match-list-header-row
+              th=today
+              th Home
+              th Draw
+              th Away
+            tr(ng-class-odd="'odd'" ng-class-even="'even'", ng-repeat="match in matches | orderBy : sorter")       
+              td
+                i {{match.datetime | date: 'HH:mm'}}
+                span {{match.home}} vs {{match.away}}
+              td(ng-click="addToCoupon(match, betTypes.homeWins)") {{match.home}} wins
+              td(ng-click="addToCoupon(match, betTypes.draw)") tie
+              td(ng-click="addToCoupon(match, betTypes.awayWins)") {{match.away}} wins
+    div.col-xs-5
+      div.right-section(ng-controller="CouponController")
+        div.coupon-container
+          h3 New Coupon
+          ul.coupon-list(ng-repeat="bet in bets") 
+            li        
+              i {{bet.match.home}}-{{bet.match.away}}
+            li(ng-switch, on="bet.betType")
+              span(ng-switch-when="1") {{bet.match.home}} wins
+              span(ng-switch-when="2") {{bet.match.away}} wins
+              span(ng-switch-when="3") tie
+          ul.coupon-list
+            li total : 

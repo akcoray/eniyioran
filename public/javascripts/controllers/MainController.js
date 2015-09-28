@@ -1,3 +1,4 @@
-function MainController($scope, $http){
-"use strict";
+function MainController($scope, $http, enums){
+	"use strict";
+    $scope.betTypes = enums.betTypes;
 };

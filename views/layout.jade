@@ -6,15 +6,17 @@ html(ng-app="BestBet")
   meta(name="viewport", content="width=device-width, initial-scale=1")
   title= title
   link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-  link(rel='stylesheet', href='/stylesheets/style.css')
+  link(rel='stylesheet', href='/stylesheets/bestbet.min.css')
   script(src='/javascripts/lib/angular.min.js')    
   script(src='/javascripts/release/controllers.min.js')
   script(src='/javascripts/release/services.min.js')
+  script(src='/javascripts/lib/enums.js')
   script(src='/javascripts/app.js')      
   body
     #header
+    #nav  
     .container(ng-controller="MainController")
-      block content
+      block content    
     #footer.site-footer
       #footer-top
         .footer-wrapper

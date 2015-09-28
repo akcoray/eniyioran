@@ -32,7 +32,9 @@ var app = angular.module('BestBet', [])
 	        return responseData;
 	    });
 	}])
-	.factory('coupon', ['$http', coupon])
-	.controller("MainController", ["$scope", "$http", MainController])
+    .factory("enums", [enums])
+	.factory("coupon", ["$http", coupon])
+	.controller("MainController", ["$scope", "$http", "enums", MainController])
+	.controller("CouponController", ["$scope", "$http", "coupon", CouponController])
 	.controller("MatchController", ["$scope", "$http", "coupon", MatchController])
 	.controller("SitesController", ["$scope", "$http", SitesController]);

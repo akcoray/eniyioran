@@ -1,0 +1,18 @@
+[	
+	{
+		"id" : 1,
+		"title" : "Türkiye Süper Lig"
+	},
+	{
+		"id" : 2,
+		"title" : "Enlish Premier League"
+	},
+	{
+		"id" : 3,
+		"title" : "Spanish La Liga"	
+	},
+	{
+		"id" : 4,
+		"title" : "Bundesliga"	
+	}	
+]
