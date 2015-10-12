@@ -1,5 +1,5 @@
 {
-  "name": "scoresapi",
+  "name": "eniyioran",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fatihkiymet/scoresapi.git"
+    "url": "git+https://github.com/fatihkiymet/eniyioran.git"
   },
   "keywords": [
     "live",
@@ -17,9 +17,9 @@
   "author": "fatih kiymet",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fatihkiymet/scoresapi/issues"
+    "url": "https://github.com/fatihkiymet/eniyioran/issues"
   },
-  "homepage": "https://github.com/fatihkiymet/scoresapi#readme",
+  "homepage": "https://github.com/fatihkiymet/eniyioran#readme",
   "dependencies": {
     "async": "^1.4.2",
     "body-parser": "^1.14.1",
