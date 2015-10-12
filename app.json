@@ -1,0 +1,8 @@
+{
+  "name": "Node.js En iyi oran",
+  "description": "bahis karsilastirma sitesi",
+  "repository": "https://github.com/fatihkiymet/eniyioran",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
+}
