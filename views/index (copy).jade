@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  div.row
+    div.col-xs-5
+      div.right-section
+        div.competition-container
+          h3 Competitions
+          ul#competition-list
+            each competition, index in competitions
+                li=competition.title
+    div.inner-container.col-xs-14
+      h2 UPCOMING EVENTS
+      div.match-container(ng-controller="MatchController")        
+        table.table.bordered
+          thead
+            tr.match-list-header-row.grid-header
+              th=today
+              th Home
+              th Draw
+              th Away
+            tr(ng-class-odd="'odd'" ng-class-even="'even'", ng-repeat="match in matches | orderBy : sorter")       
+              td
+                i {{match.datetime | date: 'HH:mm'}}
+                span {{match.home}} vs {{match.away}}
+              td(ng-click="addToCoupon(match, betTypes.homeWins)") {{match.home}} wins
+              td(ng-click="addToCoupon(match, betTypes.draw)") tie
+              td(ng-click="addToCoupon(match, betTypes.awayWins)") {{match.away}} wins
+    div.col-xs-5
+      div.right-section(ng-controller="CouponController")
+        div.coupon-container
+          h3 New Coupon
+          ul.coupon-list(ng-repeat="bet in bets") 
+            li        
+              i {{bet.match.home}}-{{bet.match.away}}
+            li(ng-switch, on="bet.betType")
+              span(ng-switch-when="1") {{bet.match.home}} wins
+              span(ng-switch-when="2") {{bet.match.away}} wins
+              span(ng-switch-when="3") tie
+          ul.coupon-list
+            li total : 
