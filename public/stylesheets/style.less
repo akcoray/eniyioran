@@ -1,5 +1,6 @@
 body {
 	color: #000;	
+	font-size: 11px;
 }
 
 h1 {
@@ -52,6 +53,14 @@ li
 	display: block;
 }
 
+.min-width{
+	width: 1%;
+}
+
+.min-height{
+	height: 1%;
+}
+
 header {
 	background-color: #0A4766;
 }
@@ -67,7 +76,7 @@ header {
 		{
 			margin: auto;
 			color: #c3aaa8;
-			font-size: 28px;
+			font-size: @medium-title;
 		}
 		li:first-child
 		{
@@ -143,7 +152,6 @@ header {
 
 .container 
 {
-	padding-top: 13px; 	
 	width: auto;
 }
 
