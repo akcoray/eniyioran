@@ -16,19 +16,20 @@ html(ng-app="BestBet")
     header      
       #main-nav.nav
         ul
-          li Logo
           li
-            span.search
+          li            
       #nav-level-2
         ul
           li
-            span.arrow
-          li Mac Sonuclari
+            LOGO
+          li Maclar
           li
             a.menu
-    .container.row(ng-controller="MainController")
-      block content    
-    #footer.site-footer
+            span.search 
+    section.content
+      .container.row(ng-controller="MainController")
+        block content    
+    footer.site-footer
       #footer-top
         .footer-wrapper
           span.footer-copyright © Copyright 2010 - 2015 Best Bet

@@ -5,6 +5,7 @@
 		"home" : "Galatasaray",
 		"away" : "Atletico Madrid",
 		"datetime" : "2015-09-19T18:45:00.003Z",
+		"competitionId" : "1",
 		"competition" : "UEFA Champions League"
 	},
 	{
@@ -13,6 +14,7 @@
 		"home" : "Real Madrid",
 		"away" : "Granada",
 		"datetime" : "2015-09-19T19:00:00.003Z",
+		"competitionId" : "1",
 		"competition" : "UEFA Champions League"
 	},		
 	{
@@ -21,6 +23,7 @@
 		"home" : "Fenerbahce",
 		"away" : "Molde",
 		"datetime" : "2015-09-19T19:00:00.003Z",
+		"competitionId" : "2",
 		"competition" : "UEFA Europe League"
 	},	
 	{
@@ -29,6 +32,7 @@
 		"home" : "Besiktas",
 		"away" : "Sofia",
 		"datetime" : "2015-09-19T17:00:00.003Z",
+		"competitionId" : "2",
 		"competition" : "UEFA Europe League"
 	},
 	{
@@ -37,6 +41,7 @@
 		"home" : "Everton",
 		"away" : "Chelsea",
 		"datetime" : "2015-09-19T13:00:00.003Z",
+		"competitionId" : "4",
 		"competition" : "English Premier League"
 	},
 	{
@@ -45,6 +50,7 @@
 		"home" : "Astonvilla",
 		"away" : "Newcastle",
 		"datetime" : "2015-09-19T13:00:00.003Z",
+		"competitionId" : "4",
 		"competition" : "English Premier League"
 	},
 	{
@@ -53,6 +59,7 @@
 		"home" : "Eibar",
 		"away" : "Barcelona",
 		"datetime" : "2015-09-19T18:00:00.003Z",
+		"competitionId" : "5",
 		"competition" : "Spanish Ligue 1"
 	}
 ]

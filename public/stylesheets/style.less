@@ -1,7 +1,4 @@
-body {
-	color: #000;	
-	font-size: 11px;
-}
+
 
 h1 {
   font-size: @big-title;
@@ -61,94 +58,7 @@ li
 	height: 1%;
 }
 
-header {
-	background-color: #0A4766;
-}
-#nav-level-2, #main-nav
-{
-	ul{	
-		height: 56px;
-		background-color: #002224;	
-		display: flex;
-		align-items: center;
-		padding: 0 28px;
-		li
-		{
-			margin: auto;
-			color: #c3aaa8;
-			font-size: @medium-title;
-		}
-		li:first-child
-		{
-			width: 100px;			
-			margin: 0 auto 0 0;
-			.arrow
-			{
-				height: 22px;
-				width: 53px;
-				display: inline-block;
-				background-image: url('/images/arrow.png');
-				background-position: 0 0;
-				background-repeat: no-repeat;
-				background-color: transparent;
-			}			
-		};
-		li:last-child{			
-			width: 100px;
-			margin: 0 0 0 auto;
-			.menu{
-				background-image: url('/images/m-menu-2.png');
-				background-position: top right;
-				background-repeat: no-repeat;
-				background-color: transparent;
-				height: 29px;
-				width: 42px;				
-				display: inline-block;
-				float: right;
-			}
-		}
-	}
-}
 
-#main-nav 
-{
-	ul
-	{
-		background-color: #000000;
-		height: 80px;
-		li:last-child
-		{
-			.search
-			{
-				display: inline-block;
-				float: right;
-				height: 27px;
-				width: 43px;
-				background-image: url('/images/search.png');
-			}			
-		};
-	}	
-}
-
-#footer
-{
-	color: #fff;
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-}
-
-#footer-top
-{
-	background: @bg-color-blue-3;
-	height: 45px;
-}
-
-#footer-bottom
-{
-	background: @bg-color-blue-1;
-	height: 60px;
-}
 
 .container 
 {
@@ -165,14 +75,27 @@ header {
 	margin: 0 0 8px 0; 
 }
 
-.match-list
-{
+.match-container
+{	
+	color: #5A1723;
+	@border-color: #f3f3f3;
+	table { border-bottom:  solid 1px @border-color; }
+	td,th 
+	{ 
+		padding: 5px  5px !important;	
+		border-right:  solid 1px @border-color;
+		font-weight: normal;
+		.min-width;
+	}
 
-}
+	th { text-align:  center;}
+	th:first-child { text-align: left; width: auto; }
+	td.match-info { width: auto; }
 
-.match-list-header-row
-{
-	border-bottom : solid 1px #ccc;
+	thead > tr > th
+	{
+		border-bottom : solid 1px @border-color;
+	}
 }
 
 
@@ -183,7 +106,7 @@ header {
 
 .match-container td:nth-child(n+2):hover
 {
-	background-color: @bg-color-blue-1;
+	background-color: @bg-color-blue-5;
 }
 
 .match-container i

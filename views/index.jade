@@ -8,12 +8,14 @@ block content
           thead
             tr.match-list-header-row.grid-header
               th(colspan=3)=today
-              th(colspan=3) Mac Sonucu
+              th 1
+              th X
+              th 2
             tr(ng-class-odd="'odd'" ng-class-even="'even'", ng-repeat="match in matches | orderBy : sorter")       
-              td.min-width {{match.datetime | date: 'HH:mm'}}
-              td.min-width {{match.code}}
-              td
+              td{{match.datetime | date: 'HH:mm'}}
+              td{{match.code}}
+              td.match-info
                 span {{match.home}} - {{match.away}}
-              td(ng-click="addToCoupon(match, betTypes.homeWins)") 1
-              td(ng-click="addToCoupon(match, betTypes.draw)") X
-              td(ng-click="addToCoupon(match, betTypes.awayWins)") 2
+              td(ng-click="addToCoupon(match, betTypes.homeWins)") 1.40
+              td(ng-click="addToCoupon(match, betTypes.draw)") 2.70
+              td(ng-click="addToCoupon(match, betTypes.awayWins)") 3.20
