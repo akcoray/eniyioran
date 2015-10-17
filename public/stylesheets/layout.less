@@ -6,21 +6,23 @@ html, body{
 body {
 	color: #000;	
 	display: flex;
-	flex-direction: column-reverse;
+	flex-direction: column;
 	font-size: 11px;
 }
 
 header {
 	background-color: @black-1;
-	flex-shrink: 1;
+	height: 100px;
+	flex : none;
 }
 
 section.content
 {
-	flex-grow: 1;
+	flex: 1;
+	overflow: auto;
 }
 
 footer
 {
-	flex-shrink: 1;
+	flex : none;
 }
