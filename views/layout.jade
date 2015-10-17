@@ -12,8 +12,8 @@ html(ng-app="BestBet")
   script(src='/javascripts/release/services.min.js')
   script(src='/javascripts/lib/enums.js')
   script(src='/javascripts/app.js')      
-  body
-    header      
+  body(ng-controller="MainController")
+    header          
       #main-nav.nav
         ul
           li
@@ -27,7 +27,7 @@ html(ng-app="BestBet")
             a.menu
             span.search 
     section.content
-      .container(ng-controller="MainController")
+      div.inner-container
         block content    
     footer.site-footer
       #footer-top

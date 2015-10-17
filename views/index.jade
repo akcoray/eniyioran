@@ -1,21 +1,22 @@
 extends layout
 
-block content
-  div.row
-    div.inner-container.col-xs-24
-      div.match-container(ng-controller="MatchController")        
-        table.table.bordered
-          thead
-            tr.match-list-header-row.grid-header
-              th(colspan=3)=today
-              th 1
-              th X
-              th 2
-            tr(ng-class-odd="'odd'" ng-class-even="'even'", ng-repeat="match in matches | orderBy : sorter")       
-              td{{match.datetime | date: 'HH:mm'}}
-              td{{match.code}}
-              td.match-info
-                span {{match.home}} - {{match.away}}
-              td(ng-click="addToCoupon(match, betTypes.homeWins)") 1.40
-              td(ng-click="addToCoupon(match, betTypes.draw)") 2.70
-              td(ng-click="addToCoupon(match, betTypes.awayWins)") 3.20
+block content  
+  div.match-container(ng-controller="MatchController")        
+    table.table.bordered(ng-repeat="competition in competitions")
+      thead
+        tr.match-list-header-row.grid-header
+          th(colspan=3)=today
+          th 1
+          th X
+          th 2
+          th
+        tr(ng-class-odd="'odd'" ng-class-even="'even'", ng-repeat="match in competition.matches | orderBy : sorter")
+          td{{match.datetime | date: 'HH:mm'}}
+          td{{match.code}}
+          td.match-info
+            span {{match.home}} - {{match.away}}
+          td(ng-click="addToCoupon(match, betTypes.homeWins)") 1.40
+          td(ng-click="addToCoupon(match, betTypes.draw)") 2.70
+          td(ng-click="addToCoupon(match, betTypes.awayWins)") 3.20
+          td(ng-click="addToCoupon(match, betTypes.awayWins)")
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
