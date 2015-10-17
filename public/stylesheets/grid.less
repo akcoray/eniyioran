@@ -1,3 +1,14 @@
+@border-color : #f3f3f3;
+
+.panel-match-group
+{	
+	border-color: @border-color;
+	.panel-heading
+	{
+		background-color : #484C51;
+	}	
+}
+
 .list-group.header-row li
 {
 	background-color : #f7f7f7;
@@ -14,7 +25,57 @@
 {
 }
 
+
+tr.odd
+{
+	background : #fff; 	
+}
+
 tr.even
 {
 	background : #fff8f7; 
+}
+
+.match-container
+{	
+	color: #5A1723;
+	td,th 
+	{ 
+		padding: 5px  5px !important;	
+		border-right:  solid 1px @border-color;
+		font-weight: normal;
+		.min-width;
+	}
+
+	th { text-align:  center;}
+	th:first-child { text-align: left; width: auto; }
+	td.match-info { width: auto; }
+
+	thead > tr > th
+	{
+		border-bottom : solid 1px @border-color;
+	}
+}
+
+
+.match-container td:nth-child(n+2)
+{
+	cursor: pointer;
+}
+
+.match-container td:nth-child(n+2):hover
+{
+	background-color: @bg-color-blue-5;
+}
+
+.match-container i
+{
+	font-size: 11px;
+	margin: 0 21px 0 8px;	
+	float: left;
+}
+
+.match-container span
+{
+	float: left;
 }
