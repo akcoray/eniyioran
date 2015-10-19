@@ -1,8 +1,8 @@
 
-#nav-level-2, #main-nav
+#nav-level-1, #main-nav
 {
 	ul{	
-		height: 56px;
+		height: 46px;
 		background-color: @black-2;	
 		display: flex;
 		align-items: center;
@@ -57,15 +57,130 @@
 	}
 }
 
-#main-nav 
-{
-	ul
+@media screen and (min-width: @lg-screen-width){
+	#nav-level-2
 	{
-		background-color: #000000;
-		height: 40px;
-		li:last-child
-		{
-			
-		};
+		width: @lg-screen-width;
+		margin: 0 auto;
 	}	
+}
+
+#nav-level-2
+{
+	padding: 0 0 0 0;
+	background-color: @bg-color-blue-3;
+}
+
+.scroll-section
+{
+	.scroll-container
+	{
+		padding: 10px 0;		
+		width: 200px;
+		margin: auto;
+		.scrollbar
+		{
+			height: 5px;
+			position: relative;
+			background-color: #fff;
+			overflow: visible;
+
+			.handle
+			{
+				height: 10px;
+				background-color: #000;
+				width: 20px;
+				transition: left 1s;
+				position: absolute;
+				left: 0;
+				top: -2.5px;
+			}
+		}
+	}
+}
+
+
+#frame
+{
+	position: relative;
+	width : 400px;	
+	height: 100px;
+	margin: 0 auto;
+	overflow: hidden;
+
+	#main-menu 
+	{
+		position: absolute;
+		height: 100px;
+		transition: transform 1s;	
+		width: 1000px;
+		li 
+		{	
+			height: 100px;
+			width: 100px;
+			float: left;
+			background : @bg-color-blue-1;
+			border: solid 1px @bg-color-grey-1; 
+
+			a 
+			{
+				color: #fff;
+			}
+		}
+
+	    li:nth-child(n+1)
+	    {
+			top: 0;
+	     	left: 0;
+	     	background-color: yellow;
+	    }
+
+	    li:nth-child(n+2)
+	    {
+			top: 0;
+	     	left: 100px;
+	     	background-color: #f3f3f3;
+	    }
+	    li:nth-child(n+3)
+	    {
+			top: 0;
+	     	left: 200px;
+	     	background-color: #fdfefe;
+	    }
+	    li:nth-child(n+4)
+	    {
+			top: 0;
+	     	left: 300px;
+	     	background-color: #d99343;
+	    }
+	    li:nth-child(n+5)
+	    {
+			top: 0;
+	     	left: 400px;
+	    }
+	    li:nth-child(n+6)
+	    {
+			top: 0;
+	     	left: 500px;
+	    }
+	    li:nth-child(n+7)
+	    {
+			top: 0;
+	     	left: 600px;
+	    }        
+	    li:nth-child(n+8)
+	    {
+			top: 0;
+	     	left: 700px;
+	    }
+	}
+
+}
+
+#scroller
+{
+	height: 5px;
+	background-color: @bg-color-blue-2;
+	display: flex;
+	flex: 1;
 }
