@@ -33,58 +33,102 @@ window.onload = function()
     var el = document.querySelector('.scroll-container');    
     var handle = document.querySelector('.handle');
     var mainMenu = document.querySelector('#main-menu');
+    var items = mainMenu.querySelectorAll('li')
 
-    var dragStart = false;
-    var start = 0;
-    var end = null;
-    var totalSize = 400;
-    var itemCount = 4;
-    var scrollSize = 200;
-    var scrollPortion = scrollSize / itemCount;
+    var pageSize = 4;
+    var scrollSize = el.offsetWidth;
+    var itemSize = items[0].offsetWidth;
+    var totalSize = items.length * itemSize;    
+    var scrollPortion = (scrollSize / ((items.length - pageSize) * itemSize)) *  itemSize;
+    var _dragStart = false;
+    Object.defineProperty(this, 'dragStart', 
+        {
+            get : function() { return _dragStart; },
+            set : function(value) {
+                _dragStart = value;
+                if(value)
+                {
+                    handle.style.transition = "";
+                }
+                else
+                {
+                    handle.style.transition = "left 0.2s";
+                }
+            }
+        }
+     );
 
     handle.addEventListener("transitionend", move, false)
 
     function slide(endPos)
     {
         if(endPos > handle.offsetLeft)
-        {
-            handle.style.left = endPos - handle.offsetWidth + 'px';
+        {            
+            var step = Math.ceil(endPos / scrollPortion);
+            var distance = (step * scrollPortion - handle.offsetWidth / 2)
+            //console.log(distance)
+            if(distance + handle.offsetWidth >= scrollSize)
+                distance = scrollSize - handle.offsetWidth;
+
+            handle.style.left = distance  + 'px';            
         }
         else
         {
-            handle.style.left = endPos + 'px';
+            //console.log(Math.floor(endPos / scrollPortion) * scrollPortion )
+            handle.style.left = (Math.floor(endPos / scrollPortion) * scrollPortion)  + 'px';
         }
     }
 
     function move()
     {
-        debugger
-        var step = Math.round(handle.offsetLeft / 50);        
-        mainMenu.style.transform = 'translate(' + step * 100 * -1 + 'px, 0)';
+        var step = Math.round(handle.offsetLeft / scrollPortion );        
+        mainMenu.style.transform = 'translate(' + step * itemSize * -1 + 'px, 0)';
     }
 
     el.onclick = function(e)
     {        
         slide(e.offsetX);      
     }
-/*
-    el.onmousedown = function(e)
-    {
-        dragStart = true;
-    }
 
     el.onmousemove = function(e)
     {
         if(dragStart)
         {
-            slide(e.offsetX);
+            handle.style.left = e.offsetX + 'px';
         }
     }
 
     el.onmouseup = function(e)
     {
         dragStart = false;
-    }*/
+        slide(e.offsetX);
+    }
+
+    handle.onclick = function(e)
+    {
+        e.stopPropagation();
+    }
+
+    handle.onmousedown = function(e)
+    {
+        e.stopPropagation();
+        dragStart = true;
+    }
+
+    handle.onmouseup = function(e)
+    {
+        e.stopPropagation();
+        dragStart = false;     
+    }
+
+    handle.onmousemove = function(e){
+        e.stopPropagation();    
+    }
+
+    document.onmouseup = function(e)
+    {
+        dragStart = false;
+    }
 }
 
 var app = angular.module('BestBet', [])
