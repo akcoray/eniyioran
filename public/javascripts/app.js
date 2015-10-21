@@ -41,6 +41,10 @@ window.onload = function()
     var totalSize = items.length * itemSize;    
     var scrollPortion = (scrollSize / ((items.length - pageSize) * itemSize)) *  itemSize;
     var _dragStart = false;
+    var _touchStart = false;
+    var _touchStartX = 0;
+    var touchEndX = 0;
+
     Object.defineProperty(this, 'dragStart', 
         {
             get : function() { return _dragStart; },
@@ -62,6 +66,9 @@ window.onload = function()
 
     function slide(endPos)
     {
+        if(endPos < 0 || endPos > el.offsetWidth)
+            return;
+
         if(endPos > handle.offsetLeft)
         {            
             var step = Math.ceil(endPos / scrollPortion);
@@ -81,9 +88,51 @@ window.onload = function()
 
     function move()
     {
-        var step = Math.round(handle.offsetLeft / scrollPortion );        
+        var step = Math.round(handle.offsetLeft / scrollPortion );
         mainMenu.style.transform = 'translate(' + step * itemSize * -1 + 'px, 0)';
     }
+
+    mainMenu.addEventListener('touchstart', function(e) {  
+        e.preventDefault();
+        if (event.targetTouches.length == 1) {
+            if(!_touchStart)
+            {
+                var touch = event.targetTouches[0];
+                _touchStart = true;
+                _touchStartX = touch.pageX;
+            }
+        }
+    }, false);
+
+    mainMenu.addEventListener('touchend', function(e) {  
+        e.preventDefault();
+        if (event.changedTouches.length == 1) {
+            var touch = event.changedTouches[0];
+            if(touch.pageX - _touchStartX > 0)                
+                slide(handle.offsetLeft - scrollPortion);
+            else
+                slide(handle.offsetLeft + scrollPortion);
+
+            _touchStartX = 0;
+            _touchStart = false;        
+            
+        }
+    }, false);
+
+    mainMenu.addEventListener('touchleave', function(e) {          
+        e.preventDefault();
+        if (event.changedTouches.length == 1) {
+            var touch = event.changedTouches[0];
+            if(touch.pageX - _touchStartX > 0)                
+                slide(handle.offsetLeft - scrollPortion);
+            else
+                slide(handle.offsetLeft + scrollPortion);
+
+            _touchStartX = 0;
+            _touchStart = false;        
+            
+        }
+    }, false);
 
     el.onclick = function(e)
     {        
