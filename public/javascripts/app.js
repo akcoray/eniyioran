@@ -87,6 +87,7 @@ window.onload = function()
             //console.log(Math.floor(endPos / scrollPortion) * scrollPortion )
             handle.style.left = (Math.floor(endPos / scrollPortion) * scrollPortion)  + 'px';
         }
+        move();
     }
 
     function move()
@@ -97,7 +98,6 @@ window.onload = function()
 
     mainMenu.addEventListener('touchstart', function(e) {  
         console.log("touch started")
-        e.preventDefault();
         if (event.targetTouches.length == 1) {
             if(!_touchStart)
             {
@@ -108,7 +108,8 @@ window.onload = function()
         }
     }, false);
 
-    mainMenu.addEventListener('touchend', function(e) {          
+    mainMenu.addEventListener('touchend', function(e) {    
+        console.log("touchend");
         if (event.changedTouches.length == 1) {
             var touch = event.changedTouches[0];
             if(touch.pageX - _touchStartX > 0)                
@@ -122,11 +123,8 @@ window.onload = function()
         }
     }, true);
 
-    mainMenu.addEventListener('touch', function(e){
-        console.dir(e);
-    })
-
     mainMenu.addEventListener('touchleave', function(e) {        
+        console.log("touchleave");
         if (event.changedTouches.length == 1) {
             var touch = event.changedTouches[0];
             if(touch.pageX - _touchStartX > 0)                
