@@ -67,7 +67,10 @@ window.onload = function()
     function slide(endPos)
     {
         if(endPos < 0 || endPos > el.offsetWidth)
+        {
+            console.log("you are the cross lines");
             return;
+        }
 
         if(endPos > handle.offsetLeft)
         {            
@@ -87,12 +90,13 @@ window.onload = function()
     }
 
     function move()
-    {
+    {        
         var step = Math.round(handle.offsetLeft / scrollPortion );
         mainMenu.style.transform = 'translate(' + step * itemSize * -1 + 'px, 0)';
     }
 
     mainMenu.addEventListener('touchstart', function(e) {  
+        console.log("touch started")
         e.preventDefault();
         if (event.targetTouches.length == 1) {
             if(!_touchStart)
@@ -104,8 +108,7 @@ window.onload = function()
         }
     }, false);
 
-    mainMenu.addEventListener('touchend', function(e) {  
-        e.preventDefault();
+    mainMenu.addEventListener('touchend', function(e) {          
         if (event.changedTouches.length == 1) {
             var touch = event.changedTouches[0];
             if(touch.pageX - _touchStartX > 0)                
@@ -117,10 +120,13 @@ window.onload = function()
             _touchStart = false;        
             
         }
-    }, false);
+    }, true);
 
-    mainMenu.addEventListener('touchleave', function(e) {          
-        e.preventDefault();
+    mainMenu.addEventListener('touch', function(e){
+        console.dir(e);
+    })
+
+    mainMenu.addEventListener('touchleave', function(e) {        
         if (event.changedTouches.length == 1) {
             var touch = event.changedTouches[0];
             if(touch.pageX - _touchStartX > 0)                
@@ -132,20 +138,21 @@ window.onload = function()
             _touchStart = false;        
             
         }
-    }, false);
+    }, true);
 
     el.onclick = function(e)
     {        
         slide(e.offsetX);      
     }
 
-    el.onmousemove = function(e)
+
+  /*  el.onmousemove = function(e)
     {
         if(dragStart)
         {
             handle.style.left = e.offsetX + 'px';
         }
-    }
+    }*/
 
     el.onmouseup = function(e)
     {
