@@ -68,7 +68,7 @@
 #nav-level-2
 {
 	padding: 0 0 0 0;
-	background-color: @bg-color-blue-3;
+	background-color: #fff;
 }
 
 .scroll-section
@@ -76,21 +76,23 @@
 	.scroll-container
 	{
 		padding: 10px 0;		
-		width: 200px;
+		width: 240px;
 		margin: auto;
 		.scrollbar
 		{
-			height: 5px;
+			height: 3px;
 			position: relative;
-			background-color: #fff;
+			background-color: @bg-color-blue-3;
 			overflow: visible;
+			border-radius: 7px;
 
 			.handle
 			{
 				cursor: pointer;
-				height: 7px;
-				background-color: #000;
-				width: 14px;
+				height: 5px;				
+				width: 28px;
+				background-color: @bg-color-blue-1;
+				border-radius: 4px;
 				transition: transform 0.2s;
 				position: relative;	
 				top: -1px;
@@ -103,24 +105,23 @@
 #frame
 {
 	position: relative;
-	width : 320px;	
 	height: 80px;
 	margin: 0 auto;
 	overflow: hidden;
+	justify-content: space-around;
 
 	#main-menu 
 	{
-		position: absolute;
+		display: flex;
 		height: 80px;
+		position: absolute;
 		transition: transform 0.4s;
-		width: 1000px;
 		li 
 		{	
 			height: 80px;
-			width: 80px;
-			float: left;
-			background : @bg-color-blue-1;
-			border: solid 1px @bg-color-grey-1; 
+			width: 90px;
+			background : #fff;
+			border: solid 1px #dddddd; 
 
 			a 
 			{
@@ -130,52 +131,40 @@
 
 	    li:nth-child(n+1)
 	    {
-			top: 0;
-	     	left: 0;
-	     	background-color: yellow;
+	     	background-image: url('/images/ball-menu.png');
+	     	background-repeat: no-repeat;
+	     	background-position: 15px 15.5px;
 	    }
 
 	    li:nth-child(n+2)
 	    {
-			top: 0;
-	     	left: 100px;
-	     	background-color: #53f3f3;
+	     	background-image: url('/images/fixture-menu.png');
+	     	background-repeat: no-repeat;
+	     	background-position: 15px 15.5px;
 	    }
 	    li:nth-child(n+3)
 	    {
-			top: 0;
-	     	left: 200px;
-	     	background-color: #fdfefe;
+	     	
 	    }
 	    li:nth-child(n+4)
 	    {
-			top: 0;
-	     	left: 300px;
-	     	background-color: #d99343;
+	     	
 	    }
 	    li:nth-child(n+5)
 	    {
-			top: 0;
-	     	left: 400px;
-	     	background-color: #666fff;
+	     	
 	    }
 	    li:nth-child(n+6)
 	    {
-			top: 0;
-	     	left: 500px;
-	     	background-color: #230343;
+	     	
 	    }
 	    li:nth-child(n+7)
 	    {
-			top: 0;
-	     	left: 600px;
-	     	background-color: #443343;
+	     	
 	    }        
 	    li:nth-child(n+8)
 	    {
-			top: 0;
-	     	left: 700px;
-	     	background-color: #443ff3;
+	     	
 	    }
 	}
 

@@ -124,24 +124,19 @@ window.onload = function()
         }    
     }, false);
 
-    mainMenu.addEventListener('touchleave', function(e) {        
-        console.log("touchleave fired");
-        if (event.changedTouches.length == 1 && _touchStart) {
-            var touch = event.changedTouches[0];
-            if(touch.pageX - _touchStartX > 0)                
-                slide(-1);
-            else
-                slide(1);            
-        }        
-        {
-            reset();
-        }
+    mainMenu.addEventListener('touchmove', function(e) {        
+        e.preventDefault();
+        console.log("touchmove");        
 
     }, false);
 
     el.onclick = function(e)
     {        
-        //slide(e.offsetX);      
+        var distance = getLeft(handle) - e.offsetX;
+
+        /*if(distance / )
+
+        slide();      */
     }
 
 
