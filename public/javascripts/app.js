@@ -67,6 +67,7 @@ window.onload = function()
         if(currentStep + step < 0 || currentStep + step > totalStep)
         {        
             console.log("can't walk");
+            reset();
             return;
         }
 
@@ -92,32 +93,39 @@ window.onload = function()
     }
 
     mainMenu.addEventListener('touchstart', function(e) {  
-        console.log("touch started");
-        if (event.targetTouches.length == 1) {
-            if(!_touchStart)
-            {
-                var touch = event.targetTouches[0];
-                _touchStart = true;
-                _touchStartX = touch.pageX;
-                console.log("touch start X " + touch.pageX);
+        console.log("touch started");        
+        if(!_touchStart)
+        {
+            if (event.targetTouches.length == 1) {
+                    var touch = event.targetTouches[0];
+                    _touchStart = true;
+                    _touchStartX = touch.pageX;
+                    console.log("touch start X " + touch.pageX);
             }
         }
+
+        e.preventDefault();
     }, false);
 
-    mainMenu.addEventListener('touchend', function(e) {       
-        console.log("touch end");   
-        if (event.changedTouches.length == 1) {
-            var touch = event.changedTouches[0];
-            console.log("touch end touch start point " + _touchStartX);
-            if(touch.pageX - _touchStartX > 0)                
-                slide(-1);
+    mainMenu.addEventListener('touchend', function(e) {               
+        console.log("touch end");           
+        if(!_touchStart)
+            {
+            if (event.changedTouches.length == 1) {
+                var touch = event.changedTouches[0];
+                console.log("touch end touch start point " + _touchStartX);
+                if(touch.pageX - _touchStartX > 0)                
+                    slide(-1);
+                else
+                    slide(1);            
+            }
             else
-                slide(1);            
-        }
-        else
-        {
-            reset();
+            {
+                reset();
+            }
         }    
+        
+        e.preventDefault();
     }, false);
 
     mainMenu.addEventListener('touchleave', function(e) {        
