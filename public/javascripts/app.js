@@ -36,111 +36,108 @@ window.onload = function()
     var items = mainMenu.querySelectorAll('li')
 
     var pageSize = 4;
-    var scrollSize = el.offsetWidth;
+    var totalStep = items.length - pageSize;
+    var scrollSize = el.offsetWidth - handle.offsetWidth;
     var itemSize = items[0].offsetWidth;
     var totalSize = items.length * itemSize;    
-    var scrollPortion = (scrollSize / ((items.length - pageSize) * itemSize)) *  itemSize;
+    var scrollPortion = (scrollSize / (totalStep * itemSize)) *  itemSize;
+    console.log('scrollPortion ' + scrollPortion); 
     var _dragStart = false;
     var _touchStart = false;
     var _touchStartX = 0;
     var touchEndX = 0;
+    var forward = 1;
+    var currentStep = 0;
 
     Object.defineProperty(this, 'dragStart', 
         {
             get : function() { return _dragStart; },
             set : function(value) {
                 _dragStart = value;
-                if(value)
-                {
-                    handle.style.transition = "";
-                }
-                else
-                {
-                    handle.style.transition = "left 0.2s";
-                }
             }
         }
      );
 
-    handle.addEventListener("transitionend", move, false)
+    handle.addEventListener("transitionend", move);
+    mainMenu.addEventListener("transitionend", reset);
 
-    function slide(endPos)
+    //number of steps to slide
+    function slide(step)
     {
-        if(endPos < 0 || endPos > el.offsetWidth)
-        {
-            console.log("you are the cross lines");
+        if(currentStep + step < 0 || currentStep + step > totalStep)
+        {        
+            console.log("can't walk");
             return;
         }
 
-        if(endPos > handle.offsetLeft)
-        {            
-            var step = Math.ceil(endPos / scrollPortion);
-            var distance = (step * scrollPortion - handle.offsetWidth / 2)
-            //console.log(distance)
-            if(distance + handle.offsetWidth >= scrollSize)
-                distance = scrollSize - handle.offsetWidth;
-
-            handle.style.left = distance  + 'px';            
-        }
-        else
-        {
-            //console.log(Math.floor(endPos / scrollPortion) * scrollPortion )
-            handle.style.left = (Math.floor(endPos / scrollPortion) * scrollPortion)  + 'px';
-        }
-        move();
+        currentStep = currentStep + step; 
+        console.log("step " + currentStep);
+        handle.style.transform = 'translate(' +  currentStep * scrollPortion + 'px, 0)';
     }
 
     function move()
-    {        
-        var step = Math.round(handle.offsetLeft / scrollPortion );
-        mainMenu.style.transform = 'translate(' + step * itemSize * -1 + 'px, 0)';
+    { 
+        console.log("slide transitionend");                
+        mainMenu.style.transform = 'translate(' + -1 * currentStep * itemSize + 'px, 0)';
+    }
+
+    function getLeft(element){
+        return  Math.round(element.getBoundingClientRect().left - el.getBoundingClientRect().left);
+    } 
+
+    function reset(){
+        _touchStartX = 0;
+        _touchStart = false;
+        console.log("reset");
     }
 
     mainMenu.addEventListener('touchstart', function(e) {  
-        console.log("touch started")
+        console.log("touch started");
         if (event.targetTouches.length == 1) {
             if(!_touchStart)
             {
                 var touch = event.targetTouches[0];
                 _touchStart = true;
                 _touchStartX = touch.pageX;
+                console.log("touch start X " + touch.pageX);
             }
         }
     }, false);
 
-    mainMenu.addEventListener('touchend', function(e) {    
-        console.log("touchend");
+    mainMenu.addEventListener('touchend', function(e) {       
+        console.log("touch end");   
         if (event.changedTouches.length == 1) {
             var touch = event.changedTouches[0];
+            console.log("touch end touch start point " + _touchStartX);
             if(touch.pageX - _touchStartX > 0)                
-                slide(handle.offsetLeft - scrollPortion);
+                slide(-1);
             else
-                slide(handle.offsetLeft + scrollPortion);
-
-            _touchStartX = 0;
-            _touchStart = false;        
-            
+                slide(1);            
         }
-    }, true);
+        else
+        {
+            reset();
+        }    
+    }, false);
 
     mainMenu.addEventListener('touchleave', function(e) {        
-        console.log("touchleave");
-        if (event.changedTouches.length == 1) {
+        console.log("touchleave fired");
+        if (event.changedTouches.length == 1 && _touchStart) {
             var touch = event.changedTouches[0];
             if(touch.pageX - _touchStartX > 0)                
-                slide(handle.offsetLeft - scrollPortion);
+                slide(-1);
             else
-                slide(handle.offsetLeft + scrollPortion);
-
-            _touchStartX = 0;
-            _touchStart = false;        
-            
+                slide(1);            
+        }        
+        {
+            reset();
         }
-    }, true);
+
+    }, false);
 
     el.onclick = function(e)
     {        
-        slide(e.offsetX);      
+        //slide(e.offsetX);      
     }
 
 
@@ -182,6 +179,7 @@ window.onload = function()
     document.onmouseup = function(e)
     {
         dragStart = false;
+        return false;
     }
 }
 
