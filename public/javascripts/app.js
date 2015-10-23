@@ -103,13 +103,11 @@ window.onload = function()
                     console.log("touch start X " + touch.pageX);
             }
         }
-
-        e.preventDefault();
     }, false);
 
     mainMenu.addEventListener('touchend', function(e) {               
         console.log("touch end");           
-        if(!_touchStart)
+        if(_touchStart)
             {
             if (event.changedTouches.length == 1) {
                 var touch = event.changedTouches[0];
@@ -124,8 +122,6 @@ window.onload = function()
                 reset();
             }
         }    
-        
-        e.preventDefault();
     }, false);
 
     mainMenu.addEventListener('touchleave', function(e) {        
